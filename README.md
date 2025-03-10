@@ -14,30 +14,25 @@ Môn học Lập trình hướng đối tượng (Object-Oriented Programming - 
 
 ## Nội dung chính
 
-1. **Giới thiệu về lập trình hướng đối tượng**
-   - Lịch sử phát triển
-   - So sánh với các phương pháp lập trình khác
-   - Ưu điểm và nhược điểm
-
-2. **Các khái niệm cơ bản**
+1. **Các khái niệm cơ bản**
    - Lớp và đối tượng
    - Thuộc tính và phương thức
    - Constructor và Destructor
    - Access modifiers (public, private, protected)
 
-3. **Bốn tính chất cơ bản của OOP**
+2. **Bốn tính chất cơ bản của OOP**
    - Tính đóng gói (Encapsulation)
    - Tính kế thừa (Inheritance)
    - Tính đa hình (Polymorphism)
    - Tính trừu tượng (Abstraction)
 
-4. **Các khái niệm nâng cao**
+3. **Các khái niệm nâng cao**
    - Interface và Abstract class
    - Overloading và Overriding
    - Composition và Aggregation
    - Design patterns cơ bản
 
-5. **Ứng dụng thực tế**
+4. **Ứng dụng thực tế**
    - Phân tích và thiết kế hướng đối tượng
    - Xây dựng các ứng dụng theo mô hình OOP
    - Refactoring và cải tiến mã nguồn
@@ -46,27 +41,12 @@ Môn học Lập trình hướng đối tượng (Object-Oriented Programming - 
 
 Môn học sử dụng ngôn ngữ lập trình C++ để minh họa các khái niệm OOP. Tuy nhiên, các nguyên lý học được có thể áp dụng cho nhiều ngôn ngữ lập trình hướng đối tượng khác như Java, C#, Python, v.v.
 
-## Đánh giá
-
-- Bài tập thực hành: 30%
-- Bài tập lớn/Đồ án: 30%
-- Kiểm tra giữa kỳ: 10%
-- Thi cuối kỳ: 30%
-
 ## Tài liệu tham khảo
 
 1. "Object-Oriented Programming in C++" - Robert Lafore
 2. "Thinking in C++" - Bruce Eckel
 3. "Clean Code: A Handbook of Agile Software Craftsmanship" - Robert C. Martin
 4. "Design Patterns: Elements of Reusable Object-Oriented Software" - Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides
-
-## Cấu trúc thư mục
-
-- `Handout-CN15B/`: Tài liệu học tập và bài giảng
-- `066206005044_Baitap1/`: Bài tập thực hành số 1
-- `066206005044_Baitap2/`: Bài tập thực hành số 2
-- `066206005044_Chuong2_Bai1/`: Bài tập chương 2
-- `bigc2code/`: Mã nguồn ví dụ và demo
 
 ## Yêu cầu
 
@@ -76,4 +56,4 @@ Môn học sử dụng ngôn ngữ lập trình C++ để minh họa các khái 
 
 ---
 
-© Khoa Công nghệ thông tin - Đại học XYZ 
+© Khoa Công nghệ thông tin và Điện, điện tử- Trường Đại học Giao Thông Vận Tải TP.Hồ Chí Minh
