@@ -356,7 +356,7 @@ int main() {
             xoakhoangtrang();
             break;
 		case 4:
-            system("start https://github.com/TeoSushi1014/oop.git");
+            system("start https://github.com/TeoSushi1014/oop/tree/main/066206005044_Baitap2");
             cout << "Đang mở mã nguồn trên GitHub..." << endl;
             break;
         case 0:
