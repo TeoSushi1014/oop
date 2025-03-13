@@ -30,7 +30,6 @@ public:
             tu = t;
             mau = m;
         }
-
     }
 
     void dattuso(int t) {
@@ -51,18 +50,42 @@ public:
         return mau;
     }
     void nhap() {
-        cout << "Nhập tử số: ";
-        cin >> tu;
-        do {
-            cout << "Nhập mẫu số: ";
-            cin >> mau;
-            if (mau == 0) {
-                cout << "Mẫu số phải khác 0" << endl;
+        string input;
+        bool valid = false;
+        
+        while (!valid) {
+            getline(cin, input);
+            
+            size_t pos = input.find('/');
+            
+            if (pos != string::npos) {
+                try {
+                    string tuso = input.substr(0, pos);
+                    string mauso = input.substr(pos + 1);
+                    
+                    tu = stoi(tuso);
+                    mau = stoi(mauso);
+                    
+                    if (mau == 0) {
+                        cout << "Mẫu số phải khác 0. Vui lòng nhập lại: ";
+                    } else {
+                        valid = true;
+                    }
+                } catch (...) {
+                    cout << "Định dạng không hợp lệ. Vui lòng nhập lại (dạng a/b): ";
+                }
+            } else {
+                cout << "Định dạng không hợp lệ. Vui lòng nhập lại (dạng a/b): ";
             }
-        } while (mau == 0);
+        }
     }
     void xuat() {
-        cout << tu << "/" << mau << endl;
+        rutgon();
+        if (mau == 1) {
+            cout << tu << endl;
+        } else {
+            cout << tu << "/" << mau << endl;
+        }
     }
     void rutgon() {
         if (tu == 0) {
@@ -83,30 +106,39 @@ public:
         c.rutgon();
         return c;
     }
-    
-
-
 };
 
 int main() {
     SetConsoleOutputCP(65001);
-    cout << "==============================================================================" << endl;
-    cout << "MSSV: 066206005044" << endl;
-    cout << "Họ và tên: Hoàng Việt Quang" << endl;
-    cout << "==============================================================================" << endl;
-    phanso ps1, ps2;
-    cout << "Nhập phân số thứ nhất: " << endl;
-    ps1.nhap();
-    cout << "Nhập phân số thứ hai: " << endl;
-    ps2.nhap();
-    cout << "Phân số thứ nhất: ";
-    ps1.xuat();
-    cout << "Phân số thứ hai: ";
-    ps2.xuat();
-    phanso tong = ps1 + ps2;
-    cout << "Tổng hai phân số: ";
-    tong.xuat();
-    cout << "Nhấn phím bất kỳ để thoát chương trình..." << endl;
-    cin.get();
+    
+    char choice;
+    do {
+        system("cls");
+        cout << "====================================================================================" << endl;
+        cout << "MSSV: 066206005044" << endl;
+        cout << "Họ và tên: Hoàng Việt Quang" << endl;
+        cout << "Source code: https://github.com/TeoSushi1014/oop/tree/main/066206005044_Chuong3_Bai2" << endl;
+        cout << "====================================================================================" << endl;
+        cout << endl;
+        
+        phanso ps1, ps2;
+        
+        cout << "Nhập phân số thứ nhất (dạng a/b): ";
+        ps1.nhap();
+        
+        cout << "Nhập phân số thứ hai (dạng a/b): ";
+        ps2.nhap();
+        
+        phanso tong = ps1 + ps2;
+        cout << "Tổng hai phân số: ";
+        tong.xuat();
+        
+        cout << "\nBạn có muốn tiếp tục? (y/n): ";
+        cin >> choice;
+        cin.ignore();
+        
+    } while (choice == 'y' || choice == 'Y');
+    
+    cout << "Kết thúc chương trình." << endl;
     return 0;
 }
