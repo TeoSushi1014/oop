@@ -1,5 +1,5 @@
 # Lab 3.c - Cài đặt thêm các toán tử hai ngôi +, -, , 
- ```
+ ```cpp
  /*
 Cài đặt các toán tử hai toán hạng +, -, *, /
 Thử nghiệm với hàm main sau:

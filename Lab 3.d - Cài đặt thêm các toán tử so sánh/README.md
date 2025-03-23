@@ -1,5 +1,5 @@
 # Lab 3.d - Cài đặt thêm các toán tử so sánh
-```
+```cpp
 /*
 Cài đặt các toán tử hai toán hạng ==, !=, <, >/
 Thử nghiệm với hàm main sau:
