@@ -12,54 +12,15 @@ string taoline(int length, char character = '-') {
     return string(length, character);
 }
 
-void hienthitieude(const string& title1, const string& title2 = "") {
-    cout << taoline(60, '-') << endl;
-    cout << title1 << endl;
-    if (!title2.empty()) {
-        cout << title2 << endl;
-    }
-    cout << taoline(60, '-') << endl;
-}
-
-void hienthitencapdo(int level) {
-    string tencapdo = "";
-    
-    switch (level) {
-        case 1: tencapdo = "DỄ"; break;
-        case 2: tencapdo = "TRUNG BÌNH"; break;
-        case 3: tencapdo = "KHÓ"; break;
-        case 4: tencapdo = "RẤT KHÓ"; break;
-        case 5: tencapdo = "ĐỊA NGỤC"; break;
-    }
-    
-    cout << "CẤP ĐỘ " << level << ": " << tencapdo << endl;
-    cout << taoline(30, '-') << endl;
-}
-
-void hienthiketqua(bool dung, float dapandung, int diemcong) {
-    if (dung) {
-        cout << ">> CHÍNH XÁC! (+" << diemcong << " điểm)" << endl;
-    } else {
-        cout << ">> SAI! Đáp án đúng: " << dapandung << endl;
-    }
-}
-
-void hienthithongke(int tongdiem, int socautraloidung, int tongsocau) {
-    double tile = (tongsocau > 0) ? (socautraloidung * 100.0 / tongsocau) : 0;
-    cout << "Điểm: " << tongdiem << " | Đúng: " << socautraloidung << "/" << tongsocau;
-    cout << " (" << fixed << setprecision(1) << tile << "%)" << endl;
-}
-
-void hienthihuongdan() {
-    cout << endl << taoline(60, '-') << endl;
-    cout << "Nhấn ENTER để tiếp tục | C: Đổi cấp độ | ESC: Thoát" << endl;
-}
-
 int main() {
     SetConsoleOutputCP(65001);
     
     system("cls");
-    hienthitieude("Họ và tên: Hoàng Việt Quang", "MSSV: 066206005044");
+    cout << taoline(60, '-') << endl;
+    cout << "Họ và tên: Hoàng Việt Quang" << endl;
+    cout << "MSSV: 066206005044" << endl;
+    cout << "Github: https://github.com/TeoSushi1014/oop/tree/main/Lab%204" << endl;
+    cout << taoline(60, '-') << endl;
     
     int tongdiem = 0;
     int socautraloidung = 0;
@@ -71,7 +32,17 @@ int main() {
     
     while (tieptuc) {
         cout << endl;
-        hienthitencapdo(level);
+        
+        string tencapdo = "";
+        switch (level) {
+            case 1: tencapdo = "DỄ"; break;
+            case 2: tencapdo = "TRUNG BÌNH"; break;
+            case 3: tencapdo = "KHÓ"; break;
+            case 4: tencapdo = "RẤT KHÓ"; break;
+            case 5: tencapdo = "ĐỊA NGỤC"; break;
+        }
+        cout << "CẤP ĐỘ " << level << ": " << tencapdo << endl;
+        cout << taoline(30, '-') << endl;
         
         Bieuthuc bt(level);
         
@@ -96,13 +67,21 @@ int main() {
         }
         
         cout << endl;
-        hienthiketqua(ketqua, bt.giatri(), level);
+        if (ketqua) {
+            cout << ">> CHÍNH XÁC! (+" << level << " điểm)" << endl;
+        } else {
+            cout << ">> SAI! Đáp án đúng: " << bt.giatri() << endl;
+        }
         cout << endl;
         
         tongsocau++;
-        hienthithongke(tongdiem, socautraloidung, tongsocau);
         
-        hienthihuongdan();
+        double tile = (tongsocau > 0) ? (socautraloidung * 100.0 / tongsocau) : 0;
+        cout << "Điểm: " << tongdiem << " | Đúng: " << socautraloidung << "/" << tongsocau;
+        cout << " (" << fixed << setprecision(1) << tile << "%)" << endl;
+        
+        cout << endl << taoline(60, '-') << endl;
+        cout << "Nhấn ENTER để tiếp tục | C: Đổi cấp độ | ESC: Thoát" << endl;
         
         phim = _getch();
         
@@ -122,12 +101,23 @@ int main() {
         
         if (tieptuc) {
             system("cls");
-            hienthitieude("Họ và tên: Hoàng Việt Quang", "MSSV: 066206005044");
+            cout << taoline(60, '-') << endl;
+            cout << "Họ và tên: Hoàng Việt Quang" << endl;
+            cout << "MSSV: 066206005044" << endl;
+            cout << "Github: https://github.com/TeoSushi1014/oop/tree/main/Lab%204" << endl;
+            cout << taoline(60, '-') << endl;
         }
     }
     
     system("cls");
-    hienthitieude("KẾT QUẢ CUỐI CÙNG", "Họ và tên: Hoàng Việt Quang - MSSV: 066206005044");
+    cout << taoline(60, '-') << endl;
+    cout << "Họ và tên: Hoàng Việt Quang" << endl;
+    cout << "MSSV: 066206005044" << endl;
+    cout << "Github: https://github.com/TeoSushi1014/oop/tree/main/Lab%204" << endl;
+    cout << endl;
+    cout << taoline(60, '-') << endl;
+    cout << "TỔNG KẾT" << endl;
+    cout << taoline(60, '-') << endl;
     
     cout << endl;
     cout << "Tổng số câu hỏi:    " << tongsocau << endl;
