@@ -5,130 +5,202 @@
 #include <windows.h>
 #include <iomanip>
 #include <conio.h>
+#include <fstream>
+#include <vector>
 #include "Bieuthuc.h"
+#include "BieuthucPS.h"
+#include "BieuthucPT.h"
+#include "Dethi.h"
+
 using namespace std;
 
 string taoline(int length, char character = '-') {
     return string(length, character);
 }
 
-int main() {
-    SetConsoleOutputCP(65001);
-    
+void hienthitieude() {
     system("cls");
-    cout << taoline(60, '-') << endl;
-    cout << "Họ và tên: Hoàng Việt Quang" << endl;
-    cout << "MSSV: 066206005044" << endl;
-    cout << "Github: https://github.com/TeoSushi1014/oop/tree/main/Lab%204" << endl;
-    cout << taoline(60, '-') << endl;
-    
-    int tongdiem = 0;
-    int socautraloidung = 0;
-    int tongsocau = 0;
-    int socaudunglientuc = 0;
-    char phim;
-    int level = 1;
-    bool tieptuc = true;
-    
-    while (tieptuc) {
-        cout << endl;
-        
-        string tencapdo = "";
-        switch (level) {
-            case 1: tencapdo = "DỄ"; break;
-            case 2: tencapdo = "TRUNG BÌNH"; break;
-            case 3: tencapdo = "KHÓ"; break;
-            case 4: tencapdo = "RẤT KHÓ"; break;
-            case 5: tencapdo = "ĐỊA NGỤC"; break;
+    cout << "=================================================\n";
+    cout << "           CHƯƠNG TRÌNH LUYỆN TOÁN CHO TRẺ       \n";
+    cout << "=================================================\n\n";
+}
+
+void luuketqua(const string& tennguoichoi, int tongdiem, int socautraloidung, int tongsocau) {
+    ofstream file("ketqua.txt", ios::app);
+    if (file.is_open()) {
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        file << dt << "Người chơi: " << tennguoichoi << endl;
+        file << "Tổng điểm: " << tongdiem << endl;
+        file << "Số câu đúng: " << socautraloidung << "/" << tongsocau;
+        file << " (" << fixed << setprecision(1) << (socautraloidung * 100.0 / tongsocau) << "%)" << endl;
+        file << taoline(60, '-') << endl;
+        file.close();
+    }
+}
+
+void xemlichsu() {
+    system("cls");
+    ifstream file("ketqua.txt");
+    if (file.is_open()) {
+        string line;
+        while (getline(file, line)) {
+            cout << line << endl;
         }
-        cout << "CẤP ĐỘ " << level << ": " << tencapdo << endl;
-        cout << taoline(30, '-') << endl;
-        
-        Bieuthuc bt(level);
-        
-        cout << "Câu " << tongsocau + 1 << ": " << bt << " = ";
-        
+        file.close();
+    } else {
+        cout << "Chưa có lịch sử chơi!" << endl;
+    }
+    cout << "\nNhấn phím bất kỳ để tiếp tục...";
+    _getch();
+}
+
+void hienthihuongdan() {
+    cout << "HƯỚNG DẪN:\n";
+    cout << "- Trả lời đúng 3 câu liên tiếp để lên cấp độ cao hơn\n";
+    cout << "- Trả lời sai sẽ bị giảm cấp độ\n";
+    cout << "- Nhấn 'q' để thoát chương trình\n\n";
+    cout << "CÁC CẤP ĐỘ:\n";
+    for (int i = 1; i <= 4; i++) {
+        cout << motatencapdo(i) << endl;
+    }
+    cout << "\nNhấn phím bất kỳ để bắt đầu...";
+    _getch();
+}
+
+string motatencapdo(int level) {
+    switch (level) {
+        case 1:
+            return "Cấp độ 1: Phép cộng với số từ 1-10";
+        case 2:
+            return "Cấp độ 2: Phép cộng, trừ với số từ 10-30";
+        case 3:
+            return "Cấp độ 3: Tất cả phép tính với số từ 10-50";
+        default:
+            return "Cấp độ 4: Tất cả phép tính với số từ 10-100";
+    }
+}
+
+// Tạo một bộ câu hỏi cho một lượt chơi
+vector<Bieuthuc> taocauhoi(int level) {
+    vector<Bieuthuc> cauhoi;
+    
+    // Số lượng câu hỏi cho mỗi phép toán
+    int socaucong = 0, socautru = 0, socaunhan = 0;
+    
+    switch (level) {
+        case 1: // Chỉ phép cộng
+            socaucong = 3;
+            break;
+        case 2: // Cộng và trừ
+            socaucong = 2;
+            socautru = 1;
+            break;
+        case 3: // Cộng, trừ và nhân
+            socaucong = socautru = socaunhan = 1;
+            break;
+        case 4: // Cộng và trừ (số lớn)
+            socaucong = 2;
+            socautru = 1;
+            break;
+        default: // Tất cả (số lớn)
+            socaucong = socautru = socaunhan = 1;
+            break;
+    }
+    
+    // Tạo các câu hỏi
+    for (int i = 0; i < socaucong + socautru + socaunhan; i++) {
+        cauhoi.push_back(Bieuthuc(level));
+    }
+    
+    return cauhoi;
+}
+
+// Hiển thị một bộ câu hỏi
+void hienthicauhoi(const vector<Bieuthuc>& cauhoi) {
+    for (int i = 0; i < cauhoi.size(); i++) {
+        cout << "Câu " << (i + 1) << ": " << cauhoi[i] << " = ?\n";
+    }
+}
+
+// Kiểm tra đáp án và trả về số câu đúng
+int kiemtradapan(const vector<Bieuthuc>& cauhoi) {
+    int socaudung = 0;
+    
+    for (int i = 0; i < cauhoi.size(); i++) {
+        cout << "Đáp án câu " << (i + 1) << ": ";
         float dapan;
         cin >> dapan;
         
-        bool ketqua = bt.kiemtra(dapan);
-        if (ketqua) {
-            tongdiem += level;
-            socautraloidung++;
-            socaudunglientuc++;
-            
-            if (socaudunglientuc >= 3 && level < 5) {
-                level++;
-                cout << "\n>> CHÚC MỪNG! Bạn đã trả lời đúng 3 câu liên tiếp. Lên cấp độ " << level << "!" << endl;
-                socaudunglientuc = 0;
-            }
+        if (cauhoi[i].kiemtra(dapan)) {
+            cout << ">> Đúng!\n";
+            socaudung++;
         } else {
-            socaudunglientuc = 0;
-        }
-        
-        cout << endl;
-        if (ketqua) {
-            cout << ">> CHÍNH XÁC! (+" << level << " điểm)" << endl;
-        } else {
-            cout << ">> SAI! Đáp án đúng: " << bt.giatri() << endl;
-        }
-        cout << endl;
-        
-        tongsocau++;
-        
-        double tile = (tongsocau > 0) ? (socautraloidung * 100.0 / tongsocau) : 0;
-        cout << "Điểm: " << tongdiem << " | Đúng: " << socautraloidung << "/" << tongsocau;
-        cout << " (" << fixed << setprecision(1) << tile << "%)" << endl;
-        
-        cout << endl << taoline(60, '-') << endl;
-        cout << "Nhấn ENTER để tiếp tục | C: Đổi cấp độ | ESC: Thoát" << endl;
-        
-        phim = _getch();
-        
-        if (phim == 27) {
-            tieptuc = false;
-        }
-        else if (phim == 'c' || phim == 'C') {
-            cout << "\nChọn cấp độ (1-5): ";
-            cin >> level;
-            cin.ignore();
-            
-            if (level < 1) level = 1;
-            if (level > 5) level = 5;
-            
-            socaudunglientuc = 0;
-        }
-        
-        if (tieptuc) {
-            system("cls");
-            cout << taoline(60, '-') << endl;
-            cout << "Họ và tên: Hoàng Việt Quang" << endl;
-            cout << "MSSV: 066206005044" << endl;
-            cout << "Github: https://github.com/TeoSushi1014/oop/tree/main/Lab%204" << endl;
-            cout << taoline(60, '-') << endl;
+            cout << ">> Sai! Đáp án đúng là: " << cauhoi[i].giatri() << endl;
         }
     }
     
-    system("cls");
-    cout << taoline(60, '-') << endl;
-    cout << "Họ và tên: Hoàng Việt Quang" << endl;
-    cout << "MSSV: 066206005044" << endl;
-    cout << "Github: https://github.com/TeoSushi1014/oop/tree/main/Lab%204" << endl;
-    cout << endl;
-    cout << taoline(60, '-') << endl;
-    cout << "TỔNG KẾT" << endl;
-    cout << taoline(60, '-') << endl;
+    return socaudung;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+    srand(time(NULL));
     
-    cout << endl;
-    cout << "Tổng số câu hỏi:    " << tongsocau << endl;
-    cout << "Số câu trả lời đúng: " << socautraloidung << endl;
+    hienthitieude();
+    hienthihuongdan();
     
-    double tilecuoi = (tongsocau > 0) ? (socautraloidung * 100.0 / tongsocau) : 0;
-    cout << "Tỉ lệ chính xác:    " << fixed << setprecision(1) << tilecuoi << "%" << endl;
-    cout << "Tổng điểm:          " << tongdiem << endl;
+    // Tạo đề thi mới
+    Dethi dethi;
+    char traloi[10];
+    bool tieptuc = true;
     
-    cout << endl;
-    cout << "Cảm ơn bạn đã tham gia!" << endl;
+    while (tieptuc) {
+        hienthitieude();
+        cout << motatencapdo(dethi.getLevel()) << endl;
+        cout << "Số câu đúng: " << dethi.getSoCauDung() << "/" << dethi.getSoCau() << endl;
+        cout << "Số câu đúng liên tiếp: " << dethi.getSoCauLienTiep() << endl << endl;
+        
+        // Hiển thị câu hỏi hiện tại
+        dethi.hienThiCauHoi(dethi.getSoCauDung());
+        
+        // Nhận đáp án từ người dùng
+        cin.getline(traloi, 10);
+        
+        // Kiểm tra nếu người dùng muốn thoát
+        if (traloi[0] == 'q' || traloi[0] == 'Q') {
+            tieptuc = false;
+            continue;
+        }
+        
+        // Kiểm tra đáp án
+        float dapan = atof(traloi);
+        bool ketqua = dethi.kiemTraDapAn(dethi.getSoCauDung() - 1, dapan);
+        
+        // Hiển thị kết quả
+        cout << (ketqua ? "\nĐúng rồi!" : "\nSai rồi!") << endl;
+        Sleep(1000);
+        
+        // Cập nhật cấp độ
+        dethi.capNhatLevel();
+        
+        // Kiểm tra nếu đã hoàn thành tất cả câu hỏi
+        if (dethi.getSoCauDung() == dethi.getSoCau()) {
+            tieptuc = false;
+        }
+    }
     
+    // Hiển thị kết quả cuối cùng
+    hienthitieude();
+    cout << "KẾT QUẢ CUỐI CÙNG:\n";
+    cout << "Số câu đúng: " << dethi.getSoCauDung() << "/" << dethi.getSoCau() << endl;
+    cout << "Cấp độ cao nhất đạt được: " << dethi.getLevel() << endl;
+    
+    // Lưu kết quả vào file
+    dethi.luuKetQua("ketqua.txt");
+    cout << "\nKết quả chi tiết đã được lưu vào file 'ketqua.txt'\n";
+    
+    cout << "\nNhấn phím bất kỳ để thoát...";
+    _getch();
     return 0;
 } 
