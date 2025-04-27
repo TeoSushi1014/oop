@@ -53,3 +53,6 @@ int main(){
     
     return 0;
 }
+
+// // Giải thích
+// Nhờ tính đa hình với phương thức ảo area(), khi gọi shape->area() sẽ tự động sử dụng phương thức của lớp con. Diện tích hình chữ nhật: 10×7=70, diện tích hình tam giác: 10×5÷2=25.

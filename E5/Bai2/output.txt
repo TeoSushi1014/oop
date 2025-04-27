@@ -1,0 +1,312 @@
+Đang chạy chương trình...
+
+Dang tao 10 nhan vien luong co dinh...
+Dang tao 10 nhan vien hoa hong...
+Dang tao 10 nhan vien luong co ban + hoa hong...
+
+*** Danh sach chua sap xep ***
+
+=== Danh sach nhan vien ===
+Nhan vien luong co dinh: Nhan vien: AG DM
+Luong tuan: 940.519
+Thu nhap: 940.519
+
+Nhan vien luong co dinh: Nhan vien: TI GT
+Luong tuan: 1451.26
+Thu nhap: 1451.26
+
+Nhan vien luong co dinh: Nhan vien: ON KB
+Luong tuan: 1205.94
+Thu nhap: 1205.94
+
+Nhan vien luong co dinh: Nhan vien: KG QT
+Luong tuan: 1870.95
+Thu nhap: 1870.95
+
+Nhan vien luong co dinh: Nhan vien: VS YD
+Luong tuan: 851.207
+Thu nhap: 851.207
+
+Nhan vien luong co dinh: Nhan vien: ER ZG
+Luong tuan: 1144.05
+Thu nhap: 1144.05
+
+Nhan vien luong co dinh: Nhan vien: JG KV
+Luong tuan: 642.277
+Thu nhap: 642.277
+
+Nhan vien luong co dinh: Nhan vien: TT FA
+Luong tuan: 1022.37
+Thu nhap: 1022.37
+
+Nhan vien luong co dinh: Nhan vien: UG LC
+Luong tuan: 525.452
+Thu nhap: 525.452
+
+Nhan vien luong co dinh: Nhan vien: MD VZ
+Luong tuan: 522.706
+Thu nhap: 522.706
+
+Nhan vien hoa hong: Nhan vien: GV BG
+Doanh so: 2624.93
+Ti le hoa hong: 0.0773446
+Thu nhap: 203.024
+
+Nhan vien hoa hong: Nhan vien: RH PD
+Doanh so: 9430.62
+Ti le hoa hong: 0.0597964
+Thu nhap: 563.917
+
+Nhan vien hoa hong: Nhan vien: BK VT
+Doanh so: 3030.06
+Ti le hoa hong: 0.0856532
+Thu nhap: 259.535
+
+Nhan vien hoa hong: Nhan vien: AG FR
+Doanh so: 3521.44
+Ti le hoa hong: 0.150978
+Thu nhap: 531.66
+
+Nhan vien hoa hong: Nhan vien: IE BP
+Doanh so: 1407.33
+Ti le hoa hong: 0.232752
+Thu nhap: 327.56
+
+Nhan vien hoa hong: Nhan vien: KJ UF
+Doanh so: 7613.15
+Ti le hoa hong: 0.123878
+Thu nhap: 943.099
+
+Nhan vien hoa hong: Nhan vien: BP US
+Doanh so: 9508.62
+Ti le hoa hong: 0.233554
+Thu nhap: 2220.77
+
+Nhan vien hoa hong: Nhan vien: BV DR
+Doanh so: 1191.99
+Ti le hoa hong: 0.269832
+Thu nhap: 321.638
+
+Nhan vien hoa hong: Nhan vien: IL HF
+Doanh so: 2464.52
+Ti le hoa hong: 0.12223
+Thu nhap: 301.238
+
+Nhan vien hoa hong: Nhan vien: KT DE
+Doanh so: 2044.83
+Ti le hoa hong: 0.253001
+Thu nhap: 517.345
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: DT IC
+Doanh so: 3732.11
+Ti le hoa hong: 0.142196
+Luong co ban: 708.972
+Thu nhap: 1239.66
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: TF SE
+Doanh so: 7167.91
+Ti le hoa hong: 0.0603153
+Luong co ban: 840.782
+Thu nhap: 1273.12
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: HE TF
+Doanh so: 5808.59
+Ti le hoa hong: 0.0727897
+Luong co ban: 842
+Thu nhap: 1264.8
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: BH YL
+Doanh so: 4980.74
+Ti le hoa hong: 0.0724998
+Luong co ban: 429.972
+Thu nhap: 791.075
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: HM CL
+Doanh so: 4590.99
+Ti le hoa hong: 0.155007
+Luong co ban: 957.765
+Thu nhap: 1669.4
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: ON AV
+Doanh so: 9327.89
+Ti le hoa hong: 0.16111
+Luong co ban: 794.958
+Thu nhap: 2297.78
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: SN DN
+Doanh so: 1973.14
+Ti le hoa hong: 0.0926801
+Luong co ban: 812.22
+Thu nhap: 995.091
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: VI BS
+Doanh so: 8943.63
+Ti le hoa hong: 0.16343
+Luong co ban: 786.52
+Thu nhap: 2248.17
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: ER BA
+Doanh so: 3025.12
+Ti le hoa hong: 0.183564
+Luong co ban: 910.852
+Thu nhap: 1466.16
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: TS FT
+Doanh so: 1930.85
+Ti le hoa hong: 0.176644
+Luong co ban: 580.773
+Thu nhap: 921.846
+
+
+*** Danh sach da sap xep (theo thu nhap giam dan) ***
+
+=== Danh sach nhan vien ===
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: ON AV
+Doanh so: 9327.89
+Ti le hoa hong: 0.16111
+Luong co ban: 794.958
+Thu nhap: 2297.78
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: VI BS
+Doanh so: 8943.63
+Ti le hoa hong: 0.16343
+Luong co ban: 786.52
+Thu nhap: 2248.17
+
+Nhan vien hoa hong: Nhan vien: BP US
+Doanh so: 9508.62
+Ti le hoa hong: 0.233554
+Thu nhap: 2220.77
+
+Nhan vien luong co dinh: Nhan vien: KG QT
+Luong tuan: 1870.95
+Thu nhap: 1870.95
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: HM CL
+Doanh so: 4590.99
+Ti le hoa hong: 0.155007
+Luong co ban: 957.765
+Thu nhap: 1669.4
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: ER BA
+Doanh so: 3025.12
+Ti le hoa hong: 0.183564
+Luong co ban: 910.852
+Thu nhap: 1466.16
+
+Nhan vien luong co dinh: Nhan vien: TI GT
+Luong tuan: 1451.26
+Thu nhap: 1451.26
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: TF SE
+Doanh so: 7167.91
+Ti le hoa hong: 0.0603153
+Luong co ban: 840.782
+Thu nhap: 1273.12
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: HE TF
+Doanh so: 5808.59
+Ti le hoa hong: 0.0727897
+Luong co ban: 842
+Thu nhap: 1264.8
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: DT IC
+Doanh so: 3732.11
+Ti le hoa hong: 0.142196
+Luong co ban: 708.972
+Thu nhap: 1239.66
+
+Nhan vien luong co dinh: Nhan vien: ON KB
+Luong tuan: 1205.94
+Thu nhap: 1205.94
+
+Nhan vien luong co dinh: Nhan vien: ER ZG
+Luong tuan: 1144.05
+Thu nhap: 1144.05
+
+Nhan vien luong co dinh: Nhan vien: TT FA
+Luong tuan: 1022.37
+Thu nhap: 1022.37
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: SN DN
+Doanh so: 1973.14
+Ti le hoa hong: 0.0926801
+Luong co ban: 812.22
+Thu nhap: 995.091
+
+Nhan vien hoa hong: Nhan vien: KJ UF
+Doanh so: 7613.15
+Ti le hoa hong: 0.123878
+Thu nhap: 943.099
+
+Nhan vien luong co dinh: Nhan vien: AG DM
+Luong tuan: 940.519
+Thu nhap: 940.519
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: TS FT
+Doanh so: 1930.85
+Ti le hoa hong: 0.176644
+Luong co ban: 580.773
+Thu nhap: 921.846
+
+Nhan vien luong co dinh: Nhan vien: VS YD
+Luong tuan: 851.207
+Thu nhap: 851.207
+
+Nhan vien luong co ban + hoa hong: Nhan vien hoa hong: Nhan vien: BH YL
+Doanh so: 4980.74
+Ti le hoa hong: 0.0724998
+Luong co ban: 429.972
+Thu nhap: 791.075
+
+Nhan vien luong co dinh: Nhan vien: JG KV
+Luong tuan: 642.277
+Thu nhap: 642.277
+
+Nhan vien hoa hong: Nhan vien: RH PD
+Doanh so: 9430.62
+Ti le hoa hong: 0.0597964
+Thu nhap: 563.917
+
+Nhan vien hoa hong: Nhan vien: AG FR
+Doanh so: 3521.44
+Ti le hoa hong: 0.150978
+Thu nhap: 531.66
+
+Nhan vien luong co dinh: Nhan vien: UG LC
+Luong tuan: 525.452
+Thu nhap: 525.452
+
+Nhan vien luong co dinh: Nhan vien: MD VZ
+Luong tuan: 522.706
+Thu nhap: 522.706
+
+Nhan vien hoa hong: Nhan vien: KT DE
+Doanh so: 2044.83
+Ti le hoa hong: 0.253001
+Thu nhap: 517.345
+
+Nhan vien hoa hong: Nhan vien: IE BP
+Doanh so: 1407.33
+Ti le hoa hong: 0.232752
+Thu nhap: 327.56
+
+Nhan vien hoa hong: Nhan vien: BV DR
+Doanh so: 1191.99
+Ti le hoa hong: 0.269832
+Thu nhap: 321.638
+
+Nhan vien hoa hong: Nhan vien: IL HF
+Doanh so: 2464.52
+Ti le hoa hong: 0.12223
+Thu nhap: 301.238
+
+Nhan vien hoa hong: Nhan vien: BK VT
+Doanh so: 3030.06
+Ti le hoa hong: 0.0856532
+Thu nhap: 259.535
+
+Nhan vien hoa hong: Nhan vien: GV BG
+Doanh so: 2624.93
+Ti le hoa hong: 0.0773446
+Thu nhap: 203.024
