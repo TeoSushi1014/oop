@@ -1,0 +1,3 @@
+1. Cài đặt hàm hoanvi dùng khuôn mẫu. Viết chương trình main() gọi hàm hoanvi với hai đối số là các biến kiểu nguyên, kiểu thực và kiểu ký tự
+
+2. Cài đặt lớp Point có thành phần toạ độ x, y. Có thể sử dụng Point với x, y là kiểu int (Point<int>), kiểu float (Point<float>) hoặc double (Point<double>). Viết phương phức distance để tính khoảng cách đến một Point khác và viết hàm main() sinh ngẫu nhiên 20 Point<int>, sắp xếp các Point theo thứ tự tăng dần khoảng cách đến gốc toạ độ (là điểm có toạ độ (0,0)).
