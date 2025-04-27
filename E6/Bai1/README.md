@@ -1,221 +1,190 @@
-# Hướng dẫn chi tiết bài tập Templates trong C++
+# Hướng dẫn chi tiết Bai1.cpp và Bai2.cpp
 
-## Tổng quan
-Bài tập này bao gồm hai phần chính:
-1. **Bài 1**: Xây dựng template function để hoán vị hai biến
-2. **Bài 2**: Xây dựng template class Point và thực hiện sắp xếp các điểm
+## Bài 1: Hàm hoán vị với khuôn mẫu
 
-## Bài 1: Template Function hoán vị (Bai1.cpp)
+File: `Bai1.cpp`
 
-### Mô tả bài toán
-Cài đặt hàm `hoanvi` dùng khuôn mẫu (template). Hàm này có thể hoán vị hai biến thuộc các kiểu dữ liệu khác nhau như int, float, char.
+### Yêu cầu
+Cài đặt hàm hoán vị (hoanvi) sử dụng khuôn mẫu (template). Viết chương trình main() gọi hàm hoán vị với hai đối số thuộc các kiểu dữ liệu: nguyên, thực và ký tự.
 
-### Phân tích code
+### Giải thích mã nguồn
 
-#### 1. Khai báo template function
-```cpp
-template <typename T>
-void hoanvi(T &a, T &b) {
-    T temp = a;
-    a = b;
-    b = temp;
-}
-```
+1. **Khai báo hàm hoán vị sử dụng khuôn mẫu**:
+   ```cpp
+   template <typename T>
+   void hoanvi(T &a, T &b) {
+       T temp = a;
+       a = b;
+       b = temp;
+   }
+   ```
+   - Đây là khuôn mẫu hàm có thể hoạt động với bất kỳ kiểu dữ liệu nào
+   - Tham số là hai tham chiếu đến biến cùng kiểu T
+   - Sử dụng biến tạm để hoán đổi giá trị giữa hai biến
 
-**Giải thích:**
-- `template <typename T>` khai báo một template với tham số kiểu dữ liệu T
-- `void hoanvi(T &a, T &b)` định nghĩa hàm hoán vị làm việc với hai tham số kiểu T
-- Các tham số được truyền bằng tham chiếu (`&`) để thay đổi giá trị gốc của biến
-- Thuật toán đơn giản: sử dụng biến tạm `temp` để lưu giá trị của a, sau đó gán giá trị của b cho a và cuối cùng gán giá trị tạm cho b
-
-#### 2. Hàm main và kết quả
-```cpp
-int main() {
-    int a = 2, b = 6;
-    float c = 22.7, d = 10.14;
-    char e = 'T', f = 'S';
-    
-    cout << "Truoc khi hoan vi:" << endl;
-    cout << "a = " << a << ", b = " << b << endl;
-    cout << "c = " << c << ", d = " << d << endl;
-    cout << "e = " << e << ", f = " << f << endl;
-    
-    hoanvi(a, b);
-    hoanvi(c, d);
-    hoanvi(e, f);
-    
-    cout << "\nSau khi hoan vi:" << endl;
-    cout << "a = " << a << ", b = " << b << endl;
-    cout << "c = " << c << ", d = " << d << endl;
-    cout << "e = " << e << ", f = " << f << endl;
-    
-    return 0;
-}
-```
-
-**Giải thích:**
-- Khởi tạo các cặp biến thuộc ba kiểu dữ liệu khác nhau (`int`, `float`, `char`)
-- In ra giá trị các biến trước khi hoán vị
-- Gọi hàm template `hoanvi()` với mỗi cặp biến
-- In ra kết quả sau khi hoán vị để kiểm tra
+2. **Hàm main**:
+   ```cpp
+   int main() {
+       int a = 2, b = 6;                // Biến kiểu nguyên
+       float c = 22.7, d = 10.14;       // Biến kiểu thực
+       char e = 'T', f = 'S';           // Biến kiểu ký tự
+       
+       // Hiển thị giá trị trước khi hoán vị
+       cout << "Truoc khi hoan vi:" << endl;
+       cout << "a = " << a << ", b = " << b << endl;
+       cout << "c = " << c << ", d = " << d << endl;
+       cout << "e = " << e << ", f = " << f << endl;
+       
+       // Gọi hàm hoán vị với các kiểu dữ liệu khác nhau
+       hoanvi(a, b);      // Hoán vị kiểu int
+       hoanvi(c, d);      // Hoán vị kiểu float
+       hoanvi(e, f);      // Hoán vị kiểu char
+       
+       // Hiển thị kết quả sau khi hoán vị
+       cout << "\nSau khi hoan vi:" << endl;
+       cout << "a = " << a << ", b = " << b << endl;
+       cout << "c = " << c << ", d = " << d << endl;
+       cout << "e = " << e << ", f = " << f << endl;
+       
+       return 0;
+   }
+   ```
+   - Tạo các cặp biến thuộc ba kiểu khác nhau: int, float, char
+   - Hiển thị giá trị ban đầu
+   - Gọi hàm `hoanvi` với mỗi cặp biến
+   - Hiển thị kết quả sau khi hoán vị
 
 ### Cách biên dịch và chạy
-Để biên dịch và chạy bài 1, có thể sử dụng file `run1.cmd` đã được cung cấp:
-```bash
-run1.cmd
+```
+g++ Bai1.cpp -o Bai1
+./Bai1  # Trên Linux/Mac
+Bai1.exe  # Trên Windows
 ```
 
-Hoặc thực hiện thủ công:
-```bash
-g++ Bai1.cpp -o Bai1.exe
-./Bai1.exe
-```
+## Bài 2: Lớp Point với khuôn mẫu
 
-### Kết quả
-```
-Truoc khi hoan vi:
-a = 2, b = 6
-c = 22.7, d = 10.14
-e = T, f = S
+File: `Bai2.cpp`
 
-Sau khi hoan vi:
-a = 6, b = 2
-c = 10.14, d = 22.7
-e = S, f = T
-```
+### Yêu cầu
+Cài đặt lớp Point có tọa độ x, y sử dụng khuôn mẫu. Lớp Point phải có thể hoạt động với x, y thuộc các kiểu: int, float và double. Viết phương thức distance để tính khoảng cách đến một Point khác. Viết hàm main() tạo ngẫu nhiên 20 Point<int> và sắp xếp chúng theo thứ tự tăng dần khoảng cách đến gốc tọa độ (0,0).
 
-## Bài 2: Template Class Point (Bai2.cpp)
+### Giải thích mã nguồn
 
-### Mô tả bài toán
-Cài đặt lớp Point có thành phần toạ độ x, y sử dụng template. Lớp Point có thể làm việc với x, y thuộc kiểu int, float hoặc double. Yêu cầu tính khoảng cách các điểm đến gốc tọa độ và sắp xếp các điểm theo thứ tự tăng dần khoảng cách.
+1. **Khai báo lớp Point với khuôn mẫu**:
+   ```cpp
+   template <typename T>
+   class Point {
+   private:
+       T x;
+       T y;
 
-### Phân tích code
+   public:
+       Point() : x(0), y(0) {}
+       
+       Point(T x1, T y1) : x(x1), y(y1) {}
+       
+       T getx() const {
+           return x;
+       }
+       
+       T gety() const {
+           return y;
+       }
+       
+       void print() const {
+           cout << "(" << x << ", " << y << ")";
+       }
+       
+       double distance(const Point<T>& other) const {
+           T dx = x - other.x;
+           T dy = y - other.y;
+           return sqrt(dx*dx + dy*dy);
+       }
+       
+       double kc_o() const {
+           Point<T> origin(0, 0);
+           return distance(origin);
+       }
+   };
+   ```
+   - Lớp Point được định nghĩa với khuôn mẫu T
+   - Hai thuộc tính tư x, y kiểu T
+   - Các phương thức:
+     - Constructor mặc định khởi tạo điểm (0,0)
+     - Constructor với tham số x, y
+     - Các hàm getter: getx(), gety()
+     - Phương thức print() để hiển thị tọa độ điểm
+     - Phương thức distance() tính khoảng cách đến điểm khác
+     - Phương thức kc_o() tính khoảng cách đến gốc tọa độ (0,0)
 
-#### 1. Khai báo template class Point
-```cpp
-template <typename T>
-class Point {
-private:
-    T x;
-    T y;
+2. **Hàm so sánh để sắp xếp**:
+   ```cpp
+   bool ss(const Point<int>& a, const Point<int>& b) {
+       return a.kc_o() < b.kc_o();
+   }
+   ```
+   - Hàm này dùng để so sánh hai Point dựa vào khoảng cách đến gốc tọa độ
+   - Trả về true nếu khoảng cách của a đến gốc tọa độ nhỏ hơn khoảng cách của b
 
-public:
-    Point() : x(0), y(0) {}
-    
-    Point(T x1, T y1) : x(x1), y(y1) {}
-    
-    T getx() const {
-        return x;
-    }
-    
-    T gety() const {
-        return y;
-    }
-    
-    void print() const {
-        cout << "(" << x << ", " << y << ")";
-    }
-    
-    double distance(const Point<T>& other) const {
-        T dx = x - other.x;
-        T dy = y - other.y;
-        return sqrt(dx*dx + dy*dy);
-    }
-    
-    double kc_o() const {
-        Point<T> origin(0, 0);
-        return distance(origin);
-    }
-};
-```
-
-**Giải thích:**
-- `template <typename T>` khai báo một template class với tham số kiểu T
-- **Thuộc tính**:
-  - `x`, `y`: tọa độ điểm kiểu T (có thể là int, float, double)
-- **Constructor**:
-  - Constructor mặc định: khởi tạo điểm tại gốc tọa độ (0, 0)
-  - Constructor với tham số: khởi tạo điểm với tọa độ cho trước
-- **Phương thức**:
-  - `getx()`, `gety()`: trả về tọa độ x, y
-  - `print()`: in ra tọa độ điểm dưới dạng (x, y)
-  - `distance()`: tính khoảng cách Euclid giữa hai điểm
-  - `kc_o()`: tính khoảng cách từ điểm đến gốc tọa độ
-
-#### 2. Hàm so sánh để sắp xếp
-```cpp
-bool ss(const Point<int>& a, const Point<int>& b) {
-    return a.kc_o() < b.kc_o();
-}
-```
-
-**Giải thích:**
-- Hàm so sánh hai điểm dựa trên khoảng cách đến gốc tọa độ
-- Trả về `true` nếu điểm a gần gốc tọa độ hơn điểm b
-- Dùng làm tham số cho hàm `sort()` của thư viện chuẩn
-
-#### 3. Hàm main và xử lý
-```cpp
-int main() {
-    srand(time(0));
-    
-    vector<Point<int>> points;
-    
-    for (int i = 0; i < 20; i++) {
-        int x = rand() % 100 - 50;
-        int y = rand() % 100 - 50;
-        points.push_back(Point<int>(x, y));
-    }
-    
-    cout << "Danh sach 20 diem ngau nhien:" << endl;
-    for (int i = 0; i < 20; i++) {
-        points[i].print();
-        cout << " - khoang cach den goc toa do: " << points[i].kc_o() << endl;
-    }
-    
-    sort(points.begin(), points.end(), ss);
-    
-    cout << "\nDanh sach sau khi sap xep theo khoang cach den goc toa do tang dan:" << endl;
-    for (int i = 0; i < 20; i++) {
-        points[i].print();
-        cout << " - khoang cach den goc toa do: " << points[i].kc_o() << endl;
-    }
-    
-    return 0;
-}
-```
-
-**Giải thích:**
-- Khởi tạo bộ sinh số ngẫu nhiên với thời gian hiện tại
-- Tạo vector `points` chứa 20 điểm Point<int>
-- Mỗi điểm được tạo với tọa độ ngẫu nhiên trong khoảng [-50, 49]
-- In danh sách các điểm và khoảng cách đến gốc tọa độ
-- Sử dụng hàm `sort()` để sắp xếp các điểm theo khoảng cách đến gốc tọa độ tăng dần
-- In lại danh sách sau khi sắp xếp
+3. **Hàm main**:
+   ```cpp
+   int main() {
+       srand(time(0));  // Khởi tạo seed cho hàm random
+       
+       vector<Point<int>> points;
+       
+       // Sinh ngẫu nhiên 20 điểm
+       for (int i = 0; i < 20; i++) {
+           int x = rand() % 100 - 50;  // Trong khoảng [-50, 49]
+           int y = rand() % 100 - 50;
+           points.push_back(Point<int>(x, y));
+       }
+       
+       // Hiển thị danh sách ban đầu
+       cout << "Danh sach 20 diem ngau nhien:" << endl;
+       for (int i = 0; i < 20; i++) {
+           points[i].print();
+           cout << " - khoang cach den goc toa do: " << points[i].kc_o() << endl;
+       }
+       
+       // Sắp xếp các điểm theo khoảng cách đến gốc tọa độ
+       sort(points.begin(), points.end(), ss);
+       
+       // Hiển thị danh sách sau khi sắp xếp
+       cout << "\nDanh sach sau khi sap xep theo khoang cach den goc toa do tang dan:" << endl;
+       for (int i = 0; i < 20; i++) {
+           points[i].print();
+           cout << " - khoang cach den goc toa do: " << points[i].kc_o() << endl;
+       }
+       
+       return 0;
+   }
+   ```
+   - Khởi tạo seed ngẫu nhiên dựa trên thời gian hiện tại
+   - Tạo vector để lưu 20 điểm Point<int>
+   - Sinh ngẫu nhiên tọa độ x, y trong khoảng [-50, 49] cho 20 điểm
+   - Hiển thị danh sách 20 điểm và khoảng cách đến gốc tọa độ
+   - Sắp xếp các điểm theo khoảng cách đến gốc tọa độ tăng dần
+   - Hiển thị danh sách sau khi sắp xếp
 
 ### Cách biên dịch và chạy
-Để biên dịch và chạy bài 2, có thể sử dụng file `run2.cmd` đã được cung cấp:
-```bash
-run2.cmd
+```
+g++ Bai2.cpp -o Bai2
+./Bai2  # Trên Linux/Mac
+Bai2.exe  # Trên Windows
 ```
 
-Hoặc thực hiện thủ công:
-```bash
-g++ Bai2.cpp -o Bai2.exe
-./Bai2.exe
-```
+## Các khái niệm quan trọng
 
-### Kết quả
-```
-Danh sach 20 diem ngau nhien:
-(x1, y1) - khoang cach den goc toa do: d1
-(x2, y2) - khoang cach den goc toa do: d2
-...
+1. **Khuôn mẫu (Template)**:
+   - Cho phép tạo hàm và lớp hoạt động với nhiều kiểu dữ liệu khác nhau
+   - Syntax: `template <typename T>` hoặc `template <class T>`
+   - Trình biên dịch sẽ tạo mã thực tế khi chúng được sử dụng với kiểu cụ thể
 
-Danh sach sau khi sap xep theo khoang cach den goc toa do tang dan:
-(xa, ya) - khoang cach den goc toa do: da
-(xb, yb) - khoang cach den goc toa do: db
-...
-```
-Với x, y là các giá trị ngẫu nhiên và d là khoảng cách tương ứng đến gốc tọa độ. Danh sách sau khi sắp xếp sẽ có d tăng dần.
+2. **Tính toán khoảng cách**:
+   - Khoảng cách Euclid giữa hai điểm (x1, y1) và (x2, y2):
+   - distance = sqrt((x2 - x1)² + (y2 - y1)²)
 
+3. **Sắp xếp bằng std::sort**:
+   - Hàm sort() trong thư viện algorithm
+   - Cần một hàm so sánh (comparator) để xác định thứ tự sắp xếp
